@@ -13,6 +13,7 @@
 		182A6599227A2DDA00E5D4FC /* G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A6598227A2DD900E5D4FC /* G.swift */; };
 		187A396B22720113003EEAE1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A396A22720113003EEAE1 /* main.swift */; };
 		18B5B5B522721BC9008ED7BA /* GSVGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5B5B422721BC9008ED7BA /* GSVGPath.swift */; };
+		18C24B77227B02A400010DDA /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C24B76227B02A400010DDA /* Point.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		187A396722720113003EEAE1 /* ComputationalGeometryAufgabe2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComputationalGeometryAufgabe2; sourceTree = BUILT_PRODUCTS_DIR; };
 		187A396A22720113003EEAE1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		18B5B5B422721BC9008ED7BA /* GSVGPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSVGPath.swift; sourceTree = "<group>"; };
+		18C24B76227B02A400010DDA /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				187A396A22720113003EEAE1 /* main.swift */,
+				18C24B76227B02A400010DDA /* Point.swift */,
 				182A6592227A1C5600E5D4FC /* SVGParserDelegate.swift */,
 				18B5B5B422721BC9008ED7BA /* GSVGPath.swift */,
 				182A6594227A1DD900E5D4FC /* SVG.swift */,
@@ -138,6 +141,7 @@
 				182A6597227A1E0A00E5D4FC /* SVGPath.swift in Sources */,
 				187A396B22720113003EEAE1 /* main.swift in Sources */,
 				182A6599227A2DDA00E5D4FC /* G.swift in Sources */,
+				18C24B77227B02A400010DDA /* Point.swift in Sources */,
 				182A6593227A1C5600E5D4FC /* SVGParserDelegate.swift in Sources */,
 				18B5B5B522721BC9008ED7BA /* GSVGPath.swift in Sources */,
 			);

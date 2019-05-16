@@ -66,6 +66,10 @@
             argument = "/Users/julianwittek/Downloads/DeutschlandMitStaedten.svg"
             isEnabled = "YES">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "/Users/julianwittek/Downloads/DeutschlandMitStaedtenCopy.svg"
+            isEnabled = "NO">
+         </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>

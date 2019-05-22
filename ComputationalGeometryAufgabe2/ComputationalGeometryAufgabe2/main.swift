@@ -99,22 +99,28 @@ for var svgRegion in svgRegions {
     
     var signedPolygons = [Polygon]()
     
-    for firstIndex in 0..<polygons.count {
+    for (firstIndex, firstPolygon) in polygons.enumerated() {
+        
         var hasPoint = false
-        for secondIndex in (firstIndex + 1)..<polygons.count {
-            if pointInPolygon(point: polygons[firstIndex].points.first!, polygon: polygons[secondIndex]) {
+        for (secondIndex, secondPolygon) in polygons.enumerated() {
+            if firstIndex == secondIndex {
+                continue
+            }
+            
+            if isPointInPolygon(point: firstPolygon.points.first!, polygon: secondPolygon) {
                 hasPoint = true
             }
         }
-        var newPolygon = polygons[firstIndex]
+        
+        var signedPolygon = firstPolygon
         
         if hasPoint {
-            newPolygon.polygonType = PolygonType.Subtractive
+            signedPolygon.polygonType = PolygonType.Subtractive
         } else {
-            newPolygon.polygonType = PolygonType.Additive
+            signedPolygon.polygonType = PolygonType.Additive
         }
-
-        signedPolygons.append(newPolygon)
+        
+        signedPolygons.append(signedPolygon)
     }
     
     regions.updateValue(signedPolygons, forKey: svgRegion.id)
@@ -157,7 +163,6 @@ for region in regions {
         } else {
             volumeRegion -= volumeOfPolygon
         }
-        
     }
     
     volumeRegion *= 0.5
@@ -172,4 +177,38 @@ for region in regions {
 let germanyFactor = wikiSizes["Deutschland"]! / volumeGermany
 
 print(String(format: "%.2f", germanyFactor) + " Deutschland: " + String(format: "%.2f", volumeGermany))
+print("")
+
+
+let svgCities = svg.paths
+var cities = [Point]()
+for svgCity in svgCities {
+    let city = Point(id: svgCity.id, x: Double(svgCity.sodipodiCx)!, y: Double(svgCity.sodipodiCy)!)
+    cities.append(city)
+}
+
+for city in cities {
+    for region in regions {
+        let polygons = region.value
+        
+        var isInAdditivPolygon = false
+        var isInSubtractivePolygon = false
+        for polygon in polygons {
+            if polygon.polygonType! == PolygonType.Additive {
+                if isPointInPolygon(point: city, polygon: polygon) {
+                    isInAdditivPolygon = true
+                }
+            } else {
+                if isPointInPolygon(point: city, polygon: polygon) {
+                    isInSubtractivePolygon = true
+                }
+            }
+        }
+        
+        if isInAdditivPolygon && !isInSubtractivePolygon {
+            print(city.id + " is in state " + region.key)
+        }
+    }
+}
+
 

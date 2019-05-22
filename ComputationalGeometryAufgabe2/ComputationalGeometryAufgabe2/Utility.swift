@@ -32,7 +32,7 @@ func sign(number: Double) -> Int {
     return result
 }
 
-func pointInPolygon(point: Point, polygon: Polygon) -> Bool {
+func isPointInPolygon(point: Point, polygon: Polygon) -> Bool {
     let pointOutside = Point(id: "outside", x: Double.random(in: polygon.boundingBox.maxX ... polygon.boundingBox.maxX + 1.0), y: Double.random(in: polygon.boundingBox.maxY ... polygon.boundingBox.maxY + 1.0))
     
     var startIndex = 0
